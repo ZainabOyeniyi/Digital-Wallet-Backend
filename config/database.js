@@ -1,4 +1,30 @@
-// src/database.js
+// const { Pool } = require('pg');
+// require('dotenv').config();
+
+// const pool = new Pool({
+//     host: process.env.DB_HOST || 'localhost',
+//     port: process.env.DB_PORT || 5432,
+//     database: process.env.DB_NAME || 'wallet',
+//     user: process.env.DB_USER || 'pguser',
+//     password: process.env.DB_PASSWORD || 'pgpass123',
+//     max: 10,
+//     idleTimeoutMillis: 30000,
+//     connectionTimeoutMillis: 60000,
+// });
+
+// // Test connection
+// pool.connect()
+//     .then(client => {
+//         console.log('✅ Database connected successfully');
+//         client.release();
+//     })
+//     .catch(err => {
+//         console.error('❌ Database connection failed:', err.message);
+//     });
+
+// module.exports = pool;
+
+
 const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({
@@ -6,7 +32,7 @@ const pool = mysql.createPool({
     port: process.env.DB_PORT || 3306,
     database: process.env.DB_NAME || 'wallet',
     user: process.env.DB_USER || 'root',
-    password: '',// process.env.DB_PASSWORD || 'password',
+    password: '',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,

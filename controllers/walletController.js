@@ -619,8 +619,7 @@ const verifyPayment = async (req, res) => {
             message: 'Payment verified and wallet funded successfully',
             reference,
             amount: parseFloat(transaction.amount),
-            newBalance: parseFloat(wallets[0].balance),
-            status: 'COMPLETED',
+            newBalance: parseFloat(wallets[0].balance)
         });
     } catch (error) {
         await connection.rollback();
